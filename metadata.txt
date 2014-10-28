@@ -12,7 +12,7 @@
 name=Profile from Points
 qgisMinimumVersion=2.0
 description=Plots a profile from point survey data using a temporary spatialite database
-version=0.101
+version=0.11
 author=Mitchell Weier - North Dakota State Water Commission
 email=mweier@nd.gov
 
@@ -26,9 +26,9 @@ email=mweier@nd.gov
 # tags are comma separated with spaces allowed
 tags=
 
-homepage=
-tracker=
-repository=
+homepage=https://github.com/msweier/QGIS-Profile-from-Points-Plugin.git
+tracker=https://github.com/msweier/QGIS-Profile-from-Points-Plugin/issues
+repository=https://github.com/msweier/QGIS-Profile-from-Points-Plugin.git
 icon=icon.png
 # experimental flag
 experimental=True
