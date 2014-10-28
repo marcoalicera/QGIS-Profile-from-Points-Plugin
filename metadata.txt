@@ -12,7 +12,7 @@
 name=Profile from Points
 qgisMinimumVersion=2.0
 description=Plots a profile from point survey data using a temporary spatialite database
-version=0.11
+version=0.12
 author=Mitchell Weier - North Dakota State Water Commission
 email=mweier@nd.gov
 
