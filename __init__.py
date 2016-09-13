@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- ProfilefromPoints
+ ProfileFromPoints
                                  A QGIS plugin
- Plots a profile from point survey data using a temporary spatialite database
+ Plots profile or cross section of survey points
                              -------------------
-        begin                : 2014-10-15
-        copyright            : (C) 2014 by Mitchell Weier - North Dakota State Water Commission
+        begin                : 2016-07-27
+        copyright            : (C) 2016 by North Dakota State Water Commission
         email                : mweier@nd.gov
+        git sha              : $Format:%H$
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,7 +22,14 @@
  This script initializes the plugin, making it known to QGIS.
 """
 
-def classFactory(iface):
-    # load ProfilefromPoints class from file ProfilefromPoints
-    from profilefrompoints import ProfilefromPoints
-    return ProfilefromPoints(iface)
+
+# noinspection PyPep8Naming
+def classFactory(iface):  # pylint: disable=invalid-name
+    """Load ProfileFromPoints class from file ProfileFromPoints.
+
+    :param iface: A QGIS interface instance.
+    :type iface: QgsInterface
+    """
+    #
+    from .profileFromPoints import ProfileFromPoints
+    return ProfileFromPoints(iface)
