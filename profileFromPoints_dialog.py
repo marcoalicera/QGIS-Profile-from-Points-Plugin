@@ -36,7 +36,7 @@ import processing
 from qgis.core import QgsVectorLayer, QgsFeature, QgsGeometry, QgsMapLayerRegistry
 #
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
+from matplotlib.backends.backend_qt4agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 from matplotlib.ticker import ScalarFormatter
 
@@ -124,7 +124,8 @@ class ProfileFromPointsDialog(QtGui.QDialog, FORM_CLASS):
         else:
             clipboard = QApplication.clipboard()
             if self.uNoHeader.isChecked():
-                clipboard.setText('\n'.join('%s\t%s' % x for x in zip(self.values[0],self.values[1])))
+                clipboard.setText('\n'.join('%s\t%s' % x for x in zip(self.values[0], self.values[1])))
+                ##clipboard.setText('\n'.join('%s\t%s' % x for x in zip(str(round(float(self.values[0]),2)),self.values[1])))
             else:
                 clipboard.setText('distance\televation\tpointID\n'+'\n'.join('%s\t%s\t%s' % x for x in zip(self.values[0],self.values[1],self.values[2])))
             
@@ -288,14 +289,14 @@ class ProfileFromPointsDialog(QtGui.QDialog, FORM_CLASS):
                 if pointShap.within(lineBoundary):
                     z = pointFeature[zField]
                     ### get distance along line
-                    dist = lineShap.project(pointShap)
+                    dist = round(lineShap.project(pointShap),3)
                     pointId = pointFeature[pointIdField]
                     ##store data
                     pointList.append([dist, z, pointId])
             else:
                 z = pointFeature[zField]
                 ### get distance along line
-                dist = lineShap.project(pointShap)
+                dist = round(lineShap.project(pointShap),3)
                 pointId = pointFeature[pointIdField]
                 ##store data
                 pointList.append([dist, z, pointId])                    
