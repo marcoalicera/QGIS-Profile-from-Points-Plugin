@@ -125,7 +125,6 @@ class ProfileFromPointsDialog(QtGui.QDialog, FORM_CLASS):
             clipboard = QApplication.clipboard()
             if self.uNoHeader.isChecked():
                 clipboard.setText('\n'.join('%s\t%s' % x for x in zip(self.values[0], self.values[1])))
-                ##clipboard.setText('\n'.join('%s\t%s' % x for x in zip(str(round(float(self.values[0]),2)),self.values[1])))
             else:
                 clipboard.setText('distance\televation\tpointID\n'+'\n'.join('%s\t%s\t%s' % x for x in zip(self.values[0],self.values[1],self.values[2])))
             
